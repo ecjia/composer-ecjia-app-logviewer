@@ -44,12 +44,11 @@
 //
 //  ---------------------------------------------------------------------------------
 //
-defined('IN_ECJIA') or exit('No permission resources.');
+namespace Ecjia\App\Logviewer\Services;
 
-class logviewer_admin_purview_api extends Component_Event_Api
+class LogviewerAdminPurviewService
 {
-
-    public function call(&$options)
+    public function handle(&$options)
     {
         $purviews = array(
             array('action_name' => __('日志查看管理', 'logviewer'), 'action_code' => 'logviewer_manage', 'relevance' => ''),

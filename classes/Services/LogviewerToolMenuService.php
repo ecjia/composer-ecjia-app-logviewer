@@ -44,12 +44,14 @@
 //
 //  ---------------------------------------------------------------------------------
 //
-defined('IN_ECJIA') or exit('No permission resources.');
+namespace Ecjia\App\Logviewer\Services;
 
-class logviewer_tool_menu_api extends Component_Event_Api
+use ecjia_admin;
+use RC_Uri;
+
+class LogviewerToolMenuService
 {
-
-    public function call(&$options)
+    public function handle(&$options)
     {
         $menus = ecjia_admin::make_admin_menu('06_logviewer_list', __('日志查看', 'logviewer'), RC_Uri::url('logviewer/admin/init'), 6)->add_purview('logviewer_manage');
         return $menus;
