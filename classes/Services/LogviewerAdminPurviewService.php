@@ -51,7 +51,7 @@ class LogviewerAdminPurviewService
     public function handle(&$options)
     {
         $purviews = array(
-            array('action_name' => __('日志查看管理', 'logviewer'), 'action_code' => 'logviewer_manage', 'relevance' => ''),
+//             array('action_name' => __('日志查看管理', 'logviewer'), 'action_code' => 'logviewer_manage', 'relevance' => ''),
         );
         return $purviews;
     }
