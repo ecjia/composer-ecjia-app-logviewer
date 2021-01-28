@@ -44,12 +44,20 @@
 //
 //  ---------------------------------------------------------------------------------
 //
-defined('IN_ECJIA') or exit('No permission resources.');
+namespace Ecjia\App\Logviewer\Controllers;
+
+use admin_nav_here;
+use ecjia_screen;
+use RC_App;
+use RC_LogViewer;
+use RC_Script;
+use RC_Style;
+use RC_Uri;
 
 /**
  * ECJia日志查看
  */
-class admin extends ecjia_admin
+class AdminController extends AdminBase
 {
     public function __construct()
     {
@@ -67,13 +75,13 @@ class admin extends ecjia_admin
         RC_Script::enqueue_script('jquery-dataTables-bootstrap');
 
         /*加载自定义JS和CSS*/
-        RC_Style::enqueue_style('logviewer', RC_App::apps_url('statics/css/logviewer.css', __FILE__));
-        RC_Script::enqueue_script('logviewer', RC_App::apps_url('statics/js/logviewer.js', __FILE__));
+        RC_Style::enqueue_style('logviewer', RC_App::apps_url('statics/css/logviewer.css', $this->__FILE__));
+        RC_Script::enqueue_script('logviewer', RC_App::apps_url('statics/js/logviewer.js', $this->__FILE__));
 
         RC_Script::enqueue_script('acejs', RC_Uri::admin_url('statics/lib/acejs/ace.js'), array(), false, true);
         RC_Script::enqueue_script('acejs-emmet', RC_Uri::admin_url('statics/lib/acejs/ext-emmet.js'), array(), false, true);
 
-        RC_Script::enqueue_script('template', RC_App::apps_url('statics/js/template.js', __FILE__));
+        RC_Script::enqueue_script('template', RC_App::apps_url('statics/js/template.js', $this->__FILE__));
 
         RC_Script::localize_script('logviewer', 'js_lang_logviewer', config('app-logviewer::jslang.logviewer_page'));
         RC_Script::localize_script('template', 'js_lang_template', config('app-logviewer::jslang.logviewer_page'));
