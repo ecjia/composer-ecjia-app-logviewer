@@ -51,7 +51,7 @@ use RC_Uri;
 
 class LogviewerToolMenuService
 {
-    public function handle(&$options)
+    public function handle($options)
     {
         $menus = ecjia_admin::make_admin_menu('06_logviewer_list', __('日志查看', 'logviewer'), RC_Uri::url('logviewer/admin/init'), 6)->add_purview('logviewer_manage');
         return $menus;
